@@ -32,6 +32,6 @@ Tailwind CSS:framework UI ini digunakan bersama React/Next.js untuk mendesain to
 MySQL / MariaDB: Digunakan sebagai tempat penyimpanan data fisik untuk seluruh tabel (User, Unit_PS, Reservasi, Transaksi).
 
 Ringkasan Alur Kerja Aplikasi (Arsitektur):
-Ketika pelanggan atau kasir menekan tombol "Buat Reservasi" di layar (Frontend / React), permintaan tersebut dikirim ke server (Backend / Next.js / Express). 
+Ketika pelanggan atau kasir menekan tombol "Buat Reservasi" di layar (Frontend ), permintaan tersebut dikirim ke server (Backend). 
 Server kemudian menyuruh Prisma ORM untuk mencatat pesanan tersebut.
 Prisma akan menerjemahkan perintah itu ke dalam bahasa SQL dan menyimpannya secara permanen ke dalam Database (MySQL).
