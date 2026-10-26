@@ -1,0 +1,69 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  PELANGGAN
+  ADMIN
+  OWNER
+}
+
+enum StatusUnit {
+  TERSEDIA
+  DISEWA
+  MAINTENANCE
+}
+
+enum StatusReservasi {
+  PENDING
+  DIBAYAR
+  SELESAI
+  BATAL
+}
+
+model User {
+  id         Int          @id @default(autoincrement())
+  nama       String
+  email      String       @unique
+  password   String
+  role       Role         @default(PELANGGAN)
+  reservasi  Reservasi[]
+  createdAt  DateTime     @default(now())
+}
+
+model UnitPS {
+  id         Int          @id @default(autoincrement())
+  nama_unit  String
+  status     StatusUnit   @default(TERSEDIA)
+  harga_jam  Int
+  reservasi  Reservasi[]
+}
+
+model Reservasi {
+  id            Int              @id @default(autoincrement())
+  userId        Int
+  unitId        Int
+  waktu_mulai   DateTime
+  waktu_selesai DateTime
+  total_harga   Int
+  status        StatusReservasi  @default(PENDING)
+  user          User             @relation(fields: [userId], references: [id])
+  unit          UnitPS           @relation(fields: [unitId], references: [id])
+  transaksi     Transaksi?
+  createdAt     DateTime         @default(now())
+}
+
+model Transaksi {
+  id            Int        @id @default(autoincrement())
+  reservasiId   Int        @unique
+  order_id      String     @unique 
+  metode_bayar  String?
+  status_bayar  String     @default("pending") 
+  reservasi     Reservasi  @relation(fields: [reservasiId], references: [id])
+  waktu_bayar   DateTime?
+}
