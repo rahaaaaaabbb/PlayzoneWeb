@@ -1,4 +1,5 @@
-Fitur Utama Aplikasi:Manajemen Pengguna (User Management): Aplikasi ini memiliki sistem autentikasi yang membedakan hak akses berdasarkan peran (role), yaitu PELANGGAN (termasuk guest dan walk-in), ADMIN, dan OWNER.   
+Fitur Utama Aplikasi:
+Manajemen Pengguna (User Management): Aplikasi ini memiliki sistem autentikasi yang membedakan hak akses berdasarkan peran (role), yaitu PELANGGAN (termasuk guest dan walk-in), ADMIN, dan OWNER.   
 Manajemen Unit PS: Mengelola daftar konsol yang disewakan (seperti PS3, PS4, dan PS5), mengatur harga sewa per jam yang berbeda untuk setiap unit, serta memantau status operasionalnya (TERSEDIA, DISEWA, MAINTENANCE).   
 Sistem Reservasi (Booking): Mencatat jadwal penyewaan pelanggan yang mencakup ID pengguna, ID unit PS, waktu mulai, waktu selesai, dan kalkulasi total harga. Reservasi ini dilengkapi pelacakan status seperti PENDING, DIBAYAR, SELESAI, atau BATAL.  
 Pencatatan Transaksi: Memproses pembayaran dengan mencatat ID Pesanan (order_id), metode pembayaran, waktu pembayaran, dan memperbarui status bayar.  
